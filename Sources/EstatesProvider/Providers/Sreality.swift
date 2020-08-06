@@ -6,15 +6,15 @@ public struct Sreality: EstatesProvider {
     public typealias Region = String
 
     fileprivate static let regions: [String: Region] = [
-        "Stochov": "3729",
-        "Kladno": "3661"
+        "Praha": "10"
     ]
 
     static func pozemkyUrl(with region: Region) -> URL {
         return URL(string: "https://www.sreality.cz/api/cs/v2/estates?category_main_cb=3&category_type_cb=1&per_page=100&region_entity_id=\(region)&region_entity_type=municipality")!
     }
+    
     static func domyUrl(with region: Region) -> URL {
-        return URL(string: "https://www.sreality.cz/api/cs/v2/estates?category_main_cb=2&category_type_cb=1&per_page=100&region_entity_id=\(region)&region_entity_type=municipality")!
+        return URL(string: "https://www.sreality.cz/api/cs/v2/estates?category_main_cb=2&category_type_cb=1&locality_region_id=\(region)&per_page=60&tms=1596712535206")!
     }
 
     public static func exploreEffects(region: Region) -> [Effect<Result<[Estate], Error>>] {

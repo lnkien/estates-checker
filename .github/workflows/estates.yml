@@ -17,11 +17,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Run Sreality
-        run: usr/local/bin/EstatesChecker --slack-url ${{ secrets.SLACK_WEBHOOK_ESTATES_STOCHOV }} --provider sreality --region Stochov
-      - name: Run BezRealitky
-        run: usr/local/bin/EstatesChecker --slack-url ${{ secrets.SLACK_WEBHOOK_ESTATES_STOCHOV }} --provider bezrealitky --region Stochov
+        run: usr/local/bin/EstatesChecker --slack-url ${{ secrets.REALITY }} --provider sreality --region Praha
       - name: Commit Changes      
-        run: git config user.email "jcislinsky@gmail.com"; git add .; if [ $((`git diff --cached --numstat | wc -l`)) -gt 0 ]; then git commit -m "Run"; fi
+        run: git config user.email "lnkien@me.com"; git add .; if [ $((`git diff --cached --numstat | wc -l`)) -gt 0 ]; then git commit -m "Run"; fi
       - name: Push
-        run: git push "https://${{ github.actor }}:${{ secrets.JCISLINSKY_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:master
+        run: git push "https://${{ github.actor }}:${{ secrets.KIEN_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:master
       
