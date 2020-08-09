@@ -6,8 +6,8 @@ public struct Sreality: EstatesProvider {
     public typealias Region = String
 
     fileprivate static let regions: [String: Region] = [
-        "Praha": "10",
-        "Brno": "14"
+        "Praha": "10"
+//        "Brno": "14"
     ]
 
 //    static func pozemkyUrl(with region: Region) -> URL {
